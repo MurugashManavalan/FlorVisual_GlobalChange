@@ -19,7 +19,7 @@ Murugash Manavalan, Department of Botany, Faculty of Science, Charles University
 ## Project Details
 
 | File | Description |
-|------|-------------|
+|----------|-------------|
 | `Data/Loggers Data` | Data from TOMST dataloggers allowing for validation of effects of experimental treatments on plant individuals |
 | `Data/Reflectance Data` | Reflectance measurements of flower colour samples acquired using spectrometer|
 | `Data/Input` | Data files for pollinator visitation and traits |
