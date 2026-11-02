@@ -18,14 +18,14 @@ Murugash Manavalan, Department of Botany, Faculty of Science, Charles University
 
 ## Project Details
 
-| File | Description |
-|----------|-------------|
-| `Data/Loggers Data` | Data from TOMST dataloggers allowing for validation of effects of experimental treatments on plant individuals |
-| `Data/Reflectance Data` | Reflectance measurements of flower colour samples acquired using spectrometer|
-| `Data/Input` | Data files for pollinator visitation and traits |
-| `Data/Processed` | Datasets for reflectance traits, pollinator visitation and traits (combined), traits correcting for effect of species |
-| `R/functions.R` | Functions required for the project alongside needed packages |
-| `R/logger_analysis.R` | Script for analysis of datalogger data |
-| `R/reflectance_analysis.R` | Script for processing of reflectance measurements |
-| `R/trait_analysis` | Script for analysis of effect of abiotic factors on floral triats and pollinator visitation |
-| `R/sem.R` | Script for Structural Equation Modelling (SEM) |
+| File                       | Description                                                                                                           |
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `Data/Loggers Data`        | Data from TOMST dataloggers allowing for validation of effects of experimental treatments on plant individuals        |
+| `Data/Reflectance Data`    | Reflectance measurements of flower colour samples acquired using spectrometer                                         |
+| `Data/Input`               | Data files for pollinator visitation and traits                                                                       |
+| `Data/Processed`           | Datasets for reflectance traits, pollinator visitation and traits (combined), traits correcting for effect of species |
+| `R/functions.R`            | Functions required for the project alongside needed packages                                                          |
+| `R/logger_analysis.R`      | Script for analysis of datalogger data                                                                                |
+| `R/reflectance_analysis.R` | Script for processing of reflectance measurements                                                                     |
+| `R/trait_analysis`         | Script for analysis of effect of abiotic factors on floral triats and pollinator visitation                           |
+| `R/sem.R`                  | Script for Structural Equation Modelling (SEM)                                                                        |
