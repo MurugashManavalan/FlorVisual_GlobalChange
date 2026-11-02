@@ -1,0 +1,9 @@
+"Response","family","link","method","Marginal","Conditional"
+"PH_resid","gaussian","identity","none",0.035648000276274,NA
+"FN_resid","gaussian","identity","none",0.289647031459766,NA
+"FA_resid","gaussian","identity","none",0.130353987898952,NA
+"ACC_resid","gaussian","identity","none",0.0853749876755364,NA
+"TB_resid","gaussian","identity","none",0.0288844945567894,NA
+"Chroma_resid","gaussian","identity","none",0.131601486350781,NA
+"Hue_resid","gaussian","identity","none",0.119509418633252,NA
+"Pv_resid","gaussian","identity","none",0.208044519629088,0.214712428137918

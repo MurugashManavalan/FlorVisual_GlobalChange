@@ -1,0 +1,167 @@
+---
+title: "Untitled"
+format: html
+---
+
+# Introduction 
+
+The primary goal behind this study is to better understand the effects of soil water and nutrient availability on floral traits and the subsequent consequences in pollinator behavior. The floral traits used in this study are specifically those pertaining to pollinator attraction. Alongside easy-to-measure traits such as flower number, size and plant height; flower colour is a key trait which is relatively understudied in literature. In contrast to the other trait, flower colour is not a single set of values but rather depending on the research questions tackled, can be interpreted in numerous ways. 
+
+In their Handbook of Standardized protocols for measurement of floral traits, [@michelot-antalikHandbookProtocolsStandardized2025] mentions three values which can be derived from floral reflectance: **Total brightness**, which is a measure of how bright the flower appears; **Hue** which is a wavelength of maximum reflectance and **Chroma** which is a measure of colour saturation or spectral purity. All these three traits are relatively easy enough to calculate with R. However, these three traits merely reflect spectral properties of the wavelength curve itself and does not offer any insights into how the colours vary in relation to the visual system of pollinators. We should consider to not fully base our trait values for a specific pollinator system which would risk reducing the generalizability of our results. 
+
+In their large-scale studies in Australia, [@dalrympleBirdsButterfliesFlowers2015; @dalrympleMacroecologicalPatternsFlower2020] strike a balance where they investigate colour indices geared towards perception but employ visual-system independent approach and dont assume any general 'viewer'.
+
+In [@dalrympleBirdsButterfliesFlowers2015], they used four colour indices: **Colour patch saturation, colour diversity, maximum contrast** and **average hue disparity** to shed light on the long-held belief that species are more colourful in the tropics. They used data from 570 species/sub-species of birds, 424 species/sub-species of butterflies and 339 species of flowering plants. Contrary to popular belief, they found that bird, butterflies and flowers had significantly higher colour saturation, maximum contrast and colour diversity at higher latitudes. Flowers have greater average hue disparity in lower latitudes. However, there was no significant latitudinal gradient in the disparity of hues on birds or butterflies. That is, flowers at lower latitudes (tropical regions) tend to have fewer distinct colours than do flowers at higher latitudes; however, where tropical species do use more than one colour in their flowers, they display more diverse hues.
+
+In [@dalrympleMacroecologicalPatternsFlower2020], they used colour indices which partially overlap with their previous study: the **Chromatic contrast** of all colour patches, the **hue disparity** and **maximum contrast** between colours displayed, **total reflectance** of all colour patches and finally the **number of different spectra** displayed by all species. Here, the emphasis was on flower colour and they wanted to understand the biotic and abiotic factors influencing macroecological patterns in flower colour. On average, flower colours were found to be more chromatic where solar radiation is high, precipitation and net primary production are low, and growing seasons are short. This provides credence to the notion that high chromatic contrast of flower colours may be related to stressful conditions. One oddity which was noticed in [@dalrympleMacroecologicalPatternsFlower2020], they have mentioned in their abstract that 
+
+>Flower colours are more chromatic where there are fewer pollinators.
+
+Although this is slightly substantiated in their Table 2, this isnt explicitly stated in their results.
+
+## Segment Classification Approach 
+
+The visual system-independent appraisal of floral reflectance of both these papers are based on [@endlerComparingEntireColour2005 ; @endlerMeasurementClassificationColour1990]. This involves integrating the area under reflectance curves in four equal spectral segments (UV 300-400 nm; short wave 400-500 nm; mid-wave 500-600nm; long-wave 600-700nm) producing relative segment reflectance data. This handling weights each segment equally but the segment reflectances were adjusted using a Michaelis-Menten transformation to account for the log-normal nature of opponency-based processing of living organisms. 
+
+$$R(\lambda) = \frac{R(\lambda)}{R(\lambda) + k}$$
+
+This function has a hyperbolic shape and mimics how photoreceptors saturate with increasing light intensity. This corrects for the fact that reflectance differences at high intensities are perceived less strongly than differences at low intensities. 
+
+The relative segment reflectances values are then used to calculate X, Y and Z coordinates for locations in the tetrahedral colour spaces. The formulae for this transformation have been mentioned in [@endlerComparingEntireColour2005]:
+
+$$x = \frac {1-2s-m-u}{2} \sqrt{\frac{3}{2}}$$  $$y=\frac{-1+3m+u}{2\sqrt{2}}$$$$z=u-\frac{1}{4}$$ 
+However, to use these exact transformations in our appraisal is quite risky. Additionally, given that a key aspect of our study is to understand the influence of abiotic factors in affecting pollinator perception towards flowers, taking a visual system independent approach would not be the ideal solution. 
+
+## Colour Hexagon Model
+
+For understanding changes in colour perception of flowers in bees, the hexagon colour space model of [@chittkaColourHexagonChromaticity1992] is considered a optimum study tool as it is a generalied colour opponent model of hymenopteron vision and is broadly use in bee-flower interaction studies. The receptor potential or Photoreceptor excitation (E) for the three photoreceptor classes for bees (UV, Blue, Green) are calculated with the following formula:
+
+$$E = \frac{V}{V_{\max}} = \frac{(R P)^n}{(R P)^n + 1}$$
+
+Where $P$ is the photon flux and $R$ is the absorption resulting in half of the maximum cell potential. 
+
+Following this, the photoreceptor excitation values are converted to coordinates in the hexagon according to: 
+$$x = \frac{\sqrt{3}}{2(E_g + E_{uv})}$$
+$$y= E_{b} - 0.5(E_{uv} + E_{g}$$
+
+## Categorical Fly Colourspace 
+
+The categorical colour vision model of [@trojeSpectralCategoriesLearning1993] is a model specifically intended for dipteran vision, based on behavioural data from the blowfly *Lucilia* sp. It assumes four dipteran classes (R7 & R8 with each having two subtypes: 'pale' and 'yellow'). The model further posits that colour vision is based on two specific opponent mechanisms (R7p - R8p, and R7y - R8y) and assumes all colours are perceptually grouped into one of the four categories. Quantum catches for each of the four photoreceptors are calculated with the following formula 
+
+$$Q_{i} = \int_\lambda R(\lambda)S(\lambda)I(\lambda)d\lambda $$
+
+Where $\lambda$ denotes the wavelength, $R_{i}(\lambda)$ the spectral sensitivity of receptor $i$, $S(\lambda)$ the reflectance spectrum of the colour, and $I(\lambda)$ the illumination spectrum.
+
+Following this, the location of the individual stimuli in the categorical space are calculated as the difference in relative stimulation between 'pale' (R7p - R8p) and 'yellow' (R7y - R8y) photoreceptor pairs :
+
+$$x = R7_{p} - R8_{p}$$
+$$ y= R7_{y} - R8{y} $$
+# Methodology 
+
+The five species which are currently being considered for our study: *Leucanthemum ircutianum*, *Arabidopsis arenosa*, *Dianthus deltoides*, *Veronica chamaedrys* and *Potentilla argentea*. According to the *Pladias* database, as all species other than *Potentilla argentea* tend to be pollinated by Solitary bees, honey bees or bumblebees, the optimum approach would be to model colour change in a trichromatic (UV, Blue, Green) vision model. 
+
+The current methodology for calculation of colour and achromatic contrast was based on insights from [@ausmaFloralDisplaysSuffer2021 ; @vanderkooiCautionColourCalculations2022 ; @delvalleGreenFlowersNeed2025]. **Colour contrast** is determined by the spectral colour differences between a stimulus (a flower) and its surrounding while **Achromatic or Green contrast** is a colour-blind contrast between stimulus and background and is perceived by bees and other insects by the long-wavelength (green) photoreceptors [@vanderkooiFlowerColourContrast2025]. After importing the reflectance spectra into R using the *pavo* package; the *'prospec'* function was used to both smooth the reflectance curves with a smoothness parameter of 0.2 and remove negative values by setting the minimum value to zero and scaling other values accordingly [@delvalleGreenFlowersNeed2025]. 
+
+```{r}
+## Load required packages 
+install.packages("pavo")
+library(pavo)
+library(dplyr)
+library(readr)
+library(stringr)
+library(purrr)
+library(here)
+
+## Importing spectra
+specs <- getspec(where = here::here("Data", "Reflectance Data"), ext = "TXT", lim = c(300,700),sep = ";")
+
+## Average repeated measurements
+spectral_names <- names(specs)[names(specs) != "wl"]
+species <- sub("_.*", "", spectral_names)
+treatment <- sub("^[^_]+_([A-Z]{2}).*$", "\\1", spectral_names)
+individual <- sub("^.*_([0-9]+)\\..*$", "\\1", spectral_names)
+obs <- sub("^.*\\.([0-9]+)$", "\\1", spectral_names)
+
+mspec <- aggspec(specs, by = individual, FUN = mean)
+sppspec <- aggspec(specs, by = species, FUN = mean)
+
+## Spectra Smoothing
+plotsmooth(sppspec, minsmooth = 0.05, maxsmooth = 0.5, curves = 4, ask = FALSE)
+specs.sm <- procspec(specs, opt = "smooth", span = 0.2)
+
+## Converting Negative Values to Zero
+specs.smn <- procspec(specs.sm, fixneg = "zero")
+
+```
+
+Animal vision models of both hymenopterans (bees) and dipterans (flies) were used to represent how the colour stimulus is perceived by the two dominant groups of pollinators. The processed reflectance curves were plotted as loci in the vision models of both pollinator groups using the *'colspace'* function. Von kries transformation was implemented in both models as it assumes the eye photoreceptors are adapted to the spectral properties of the illumination and background. A standard daylight function (D65) was used as illuminant while the average spectrum of green foliage of 230 species was used as background. Receptor quantum catches were normalized in visual model of flies while normalization was not carried out in the visual model of bees as the corresponding brightness information is required to calculate achromatic contrast [@delvalleGreenFlowersNeed2025].
+
+```{r}
+## Creation of Colour Space
+vis.bee <- vismodel(specs.smn, visual = "apis", qcatch = "Ei", relative = FALSE, 
+vonkries = TRUE, achromatic = "l", illum = "D65", bkg = "green") # For bees
+vis.fly <- vismodel(specs.smn, visual = "musca", qcatch = "Qi", relative = TRUE, 
+vonkries = TRUE, achromatic = "l", illum = "D65", bkg = "green") # For flies
+
+## Coordinates for Colour Space
+hex.flowers <- colspace(vis.bee, space = "hexagon")
+cat.flowers <- colspace(vis.fly, space = "categorical")
+```
+
+Colour or chromatic contrast was calculated as the Euclidean distance between the colour loci of the flower and the achromatic centre measured in Euclidean units (EU). For bees, achromatic contrast was calculated as the difference between the excitation value of the green photoreceptor and 0.5, which represents adaptation to the background.
+
+```{r}
+## Calculating Chromatic Contrast
+hex_contrast <- sqrt(hex.flowers$x^2 + hex.flowers$y^2) 
+#Euclidean Distance between colour loci of flower and achromatic centre (0,0)
+
+cat_contrast <- sqrt(cat.flowers$x^2 + cat.flowers$y^2)
+
+## Calculating Achromatic Contrast
+vis.bee_green <- vis.bee$l
+achro_contrast <- abs(vis.bee_green - 0.5)
+```
+
+To keep calculations consistent, spectral properties such as **total brightness**, **hue** and **saturation** were also calculated with the *pavo* package.
+
+```{r}
+## Other colourimetric variables
+spec_summary <- summary(specs.smn)
+B1 <- spec_summary$B1
+S8 <- spec_summary$S8
+H1 <- spec_summary$H1
+```
+
+# Results 
+
+Preliminary analysis of effects of nutrient and water treatment on colour indices shows interesting findings. Interaction between nutrient and water treatment has significant effect only on Chroma. In terms of individual effects, the nutrient enrichment treatment had significant effect on Chromatic Contrast (in Flies), Achromatic Contrast and Chroma while drought treatment had significant effect only on chroma and hue. 
+
+Visualizing this models using *'ggplot2'*, we noticed some interesting patterns. Under interaction, significant change in chroma is only apparent in the high-nutrient treatments where chroma is relatively high in the drought treatment than in the well-watered treatment.
+![Alt text](../Plots%20-%207%20January%202026/All%20Species/WN_Chroma.png)
+
+In terms of individual effects, nutrient enrichment was associated with increased achromatic contrast and a slight reduction in chroma. Chromatic contrast (as perceived by flies) exhibited comparable interquartile ranges across nutrient treatments; however, the low-nutrient treatment showed a markedly broader distribution of values, indicating greater variability.
+
+![ ](../Plots%20-%207%20January%202026/All%20Species/N_ACC.png)![Alt text](../Plots%20-%207%20January%202026/All%20Species/N_Chroma.png)
+![Alt text](../Plots%20-%207%20January%202026/All%20Species/N_FCC.png)
+A similar pattern is observed for the effect of drought treatment on chroma: although both water treatments exhibit comparable interquartile ranges, the well-watered treatment shows greater variability, driven primarily by a higher frequency of lower chroma values. In addition, drought treatment is associated with an increase in hue.
+![Alt text](../Plots%20-%207%20January%202026/All%20Species/W_Chroma.png)![Alt text](../Plots%20-%207%20January%202026/All%20Species/W_Hue.png)
+
+# References
+
+Ausma, Ties, Vidisha Bansal, Marjan Kraaij, Anne C.M. Verloop, Anna Gasperl, Maria Müller, Stanislav Kopriva, Luit J. De Kok, and Casper J. Van Der Kooi. 2021. “Floral Displays Suffer from Sulphur Deprivation.” _Environmental and Experimental Botany_ 192 (December):104656. [https://doi.org/10.1016/j.envexpbot.2021.104656](https://doi.org/10.1016/j.envexpbot.2021.104656).
+
+Dalrymple, Rhiannon L., Darrell J. Kemp, Habacuc Flores‐Moreno, Shawn W. Laffan, Thomas E. White, Frank A. Hemmings, and Angela T. Moles. 2020. “Macroecological Patterns in Flower Colour Are Shaped by Both Biotic and Abiotic Factors.” _New Phytologist_ 228 (6): 1972–85. [https://doi.org/10.1111/nph.16737](https://doi.org/10.1111/nph.16737).
+
+Dalrymple, Rhiannon L., Darrell J. Kemp, Habacuc Flores‐Moreno, Shawn W. Laffan, Thomas E. White, Frank A. Hemmings, Marianne L. Tindall, and Angela T. Moles. 2015. “Birds, Butterflies and Flowers in the Tropics Are Not More Colourful than Those at Higher Latitudes.” _Global Ecology and Biogeography_ 24 (12): 1424–32. [https://doi.org/10.1111/geb.12368](https://doi.org/10.1111/geb.12368).
+
+Del Valle, José C, Melissa León-Osper, Carlos Domínguez-González, Ma Luisa Buide, Montserrat Arista, Pedro L Ortiz, Justen B Whittall, and Eduardo Narbona. 2025. “Green Flowers Need Yellow to Get Noticed in a Green World.” _Annals of Botany_ 135 (7): 1281–92. [https://doi.org/10.1093/aob/mcae213](https://doi.org/10.1093/aob/mcae213).
+
+Endler, John A. 1990. “On the Measurement and Classification of Colour in Studies of Animal Colour Patterns.” _Biological Journal of the Linnean Society_ 41 (4): 315–52. [https://doi.org/10.1111/j.1095-8312.1990.tb00839.x](https://doi.org/10.1111/j.1095-8312.1990.tb00839.x).
+
+Endler, John A., and Paul W. Mielke. 2005. “Comparing Entire Colour Patterns as Birds See Them: COLOUR PATTERN DIFFERENCES.” _Biological Journal of the Linnean Society_ 86 (4): 405–31. [https://doi.org/10.1111/j.1095-8312.2005.00540.x](https://doi.org/10.1111/j.1095-8312.2005.00540.x).
+
+Michelot‐Antalik, Alice, Alban Langlois, Francesco De Bello, James Desaegher, Léa Genty, Jérémie Goulnik, Jérémy Grosjean, et al. 2025. “Handbook of Protocols for Standardized Measurements of Floral Traits for Pollinators in Temperate Communities.” _Methods in Ecology and Evolution_, March, 2041-210X.70031. [https://doi.org/10.1111/2041-210X.70031](https://doi.org/10.1111/2041-210X.70031).
+
+Van Der Kooi, C. J., and J. Spaethe. 2025. “Flower Colour Contrast, ‘Spectral Purity’ and a Red Herring.” _Plant Biology_ 27 (2): 189–94. [https://doi.org/10.1111/plb.13767](https://doi.org/10.1111/plb.13767).
+
+Van Der Kooi, Casper J, and Johannes Spaethe. 2022. “Caution with Colour Calculations: Spectral Purity Is a Poor Descriptor of Flower Colour Visibility.” _Annals of Botany_ 130 (1): 1–9. [https://doi.org/10.1093/aob/mcac069](https://doi.org/10.1093/aob/mcac069).

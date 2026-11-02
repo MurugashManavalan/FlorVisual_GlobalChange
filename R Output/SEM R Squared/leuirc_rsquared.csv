@@ -1,0 +1,10 @@
+"Response","family","link","method","Marginal","Conditional"
+"sqrt_No_of_flowers","gaussian","identity","none",0.371339546367854,NA
+"log_Floral_area_mm","gaussian","identity","none",0.0444386270671574,NA
+"Bee_chromatic_contrast","gaussian","identity","none",0.486126163600227,NA
+"Fly_chromatic_contrast","gaussian","identity","none",0.516151427319745,NA
+"Achromatic_contrast","gaussian","identity","none",0.133675189830561,NA
+"Total_brightness","gaussian","identity","none",0.119470343800583,NA
+"log_Chroma","gaussian","identity","none",0.513968123900677,NA
+"Hue","gaussian","identity","none",0.195880363849543,NA
+"Pollinator","Negative Binomial","log","trigamma",0.540693643116154,0.594471817570839
