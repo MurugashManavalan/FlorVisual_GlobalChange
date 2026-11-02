@@ -44,4 +44,4 @@ To reproduce the analysis used in the publication, the user can run scripts in `
 
 ## Citation
 
-If you use the code or data, please cite the archived repository: 10.5281/zenodo.23883868.
+If you use the code or data, please cite the archived repository: https://doi.org/10.5281/zenodo.23884269
