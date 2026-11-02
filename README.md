@@ -28,4 +28,4 @@ Murugash Manavalan, Department of Botany, Faculty of Science, Charles University
 | `R/logger_analysis.R` | Script for analysis of datalogger data |
 | `R/reflectance_analysis.R` | Script for processing of reflectance measurements |
 | `R/trait_analysis` | Script for analysis of effect of abiotic factors on floral triats and pollinator visitation |
-| `R/structural_equation_modelling.R` | Script for SEM analysis |
+| `R/sem.R` | Script for Structural Equation Modelling (SEM) |
