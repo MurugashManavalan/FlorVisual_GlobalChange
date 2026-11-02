@@ -18,14 +18,30 @@ Murugash Manavalan, Department of Botany, Faculty of Science, Charles University
 
 ## Project Details
 
-| File                       | Description                                                                                                           |
-|----------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `Data/Loggers Data`        | Data from TOMST dataloggers allowing for validation of effects of experimental treatments on plant individuals        |
-| `Data/Reflectance Data`    | Reflectance measurements of flower colour samples acquired using spectrometer                                         |
-| `Data/Input`               | Data files for pollinator visitation and traits                                                                       |
-| `Data/Processed`           | Datasets for reflectance traits, pollinator visitation and traits (combined), traits correcting for effect of species |
-| `R/functions.R`            | Functions required for the project alongside needed packages                                                          |
-| `R/logger_analysis.R`      | Script for analysis of datalogger data                                                                                |
-| `R/reflectance_analysis.R` | Script for processing of reflectance measurements                                                                     |
-| `R/trait_analysis`         | Script for analysis of effect of abiotic factors on floral triats and pollinator visitation                           |
-| `R/sem.R`                  | Script for Structural Equation Modelling (SEM)                                                                        |
+| File                          | Description                                                                                                           |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `Data/Loggers Data`           | Data from TOMST dataloggers allowing for validation of effects of experimental treatments on plant individuals        |
+| `Data/Reflectance Data`       | Reflectance measurements of flower colour samples acquired using spectrometer                                         |
+| `Data/Input`                  | Data files for pollinator visitation and traits                                                                       |
+| `Data/Processed`              | Datasets for reflectance traits, pollinator visitation and traits (combined), traits correcting for effect of species |
+| `R/functions.R`               | Functions required for the project alongside needed packages                                                          |
+| `R/logger_analysis.R`         | Script for analysis of datalogger data                                                                                |
+| `R/01_reflectance_analysis.R` | Script for processing of reflectance measurements                                                                     |
+| `R/02_trait_analysis`         | Script for analysis of effect of abiotic factors on floral triats and pollinator visitation                           |
+| `R/03_sem.R`                  | Script for Structural Equation Modelling (SEM)                                                                        |
+
+### Getting the code
+
+The project is accessible in two ways:
+  
+  1. If a user has a [GitHub account](https://github.com/), the easiest way is to [clone](https://happygitwithr.com/clone.html) this GitHub repo.
+  
+  2. A user can download the latest *Release* of the project as a zip file from the [Release page](https://github.com/MurugashManavalan/FlorVisual_GlobalChange/releases).
+
+### Usage
+
+To reproduce the analysis used in the publication, the user can run scripts in `R/` in suggested numerical order or run whichever scripts they are interested in.
+
+## Citation
+
+If you use the code or data, please cite the archived repository: 10.5281/zenodo.23883868
